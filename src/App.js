@@ -142,7 +142,7 @@ function App() {
         <h3>
           {calculatedSkruer} skruer
         </h3>
-        <p><i>Kalukalturen tar utgangspunkt i 60 cm senteravstand, 3 mm mellom hvert bord og 10% kappsvinn.</i></p>
+        <p><i>Kalkulatoren tar utgangspunkt i 60 cm senteravstand, 3 mm mellom hvert bord og 10% kappsvinn.</i></p>
       </Box>
     </Container>
   );
