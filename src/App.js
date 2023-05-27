@@ -1,26 +1,16 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { styled } from '@mui/material/styles';
+//import { styled } from '@mui/material/styles';
 
 /* Import Material UI Components  */
-import { Grid } from '@mui/material';
+//import { Grid } from '@mui/material';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 
-import Slider from '@mui/material/Slider';
-import MuiInput from '@mui/material/Input';
-import FormLabel from '@mui/material/FormLabel';
-import HelpIcon from '@mui/icons-material/Help';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-
-const Input = styled(MuiInput)`
-  width: 42px;
-`;
-
+//import Slider from '@mui/material/Slider';
+//import MuiInput from '@mui/material/Input';
 
 function App() {
   const [bredde, setBredde] = React.useState(120);
@@ -29,21 +19,23 @@ function App() {
   const avstad = 3;
   const cc = 600;
 
-  const handleSliderChange = (event, newValue) => {
+  /*const handleSliderChange = (event, newValue) => {
     setBredde(newValue);
   };
-
-  const handleInputChange = (event) => {
-    setBredde(event.target.value === '' ? '' : Number(event.target.value));
-  };
-
+  
   const handleBlur = () => {
     if (bredde < 75) {
       setBredde(75);
     } else if (bredde > 250) {
       setBredde(250);
     }
+  };*/
+
+  const handleInputChange = (event) => {
+    setBredde(event.target.value === '' ? '' : Number(event.target.value));
   };
+
+
 
   const handleTextInputChange = (event) => {
     setKvm(event.target.value);
@@ -86,16 +78,7 @@ function App() {
           Regn ut hvor mye terrassebord, skruer og material du trenger. 
         </p>
       </header>
-      <Box>
-        <FormLabel id="terrassebord-bredde-label">
-              Terrassebord bredde (i mm)
-              <Tooltip title="Velg bredde på terrassebord. Den mest vanlige bredden er 120mm." placement="right-start">
-                <IconButton>
-                  <HelpIcon />
-                </IconButton>
-              </Tooltip>
-        </FormLabel>
-        <Grid container spacing={2} alignItems="center">
+        {/*<Grid container spacing={2} alignItems="center">
           <Grid item xs>
             <Slider
               value={typeof bredde === 'number' ? bredde : 120}
@@ -119,9 +102,20 @@ function App() {
               }}
             />
           </Grid>
-        </Grid>
-      </Box>
-      <Box>
+            </Grid>*/}
+        <TextField
+          marginRight="20"
+          name="bredde"
+          label="Terrassebord bredde"
+          variant="outlined"
+          margin="normal"
+          value={bredde}
+          onChange={handleInputChange}
+          style={{marginRight: '16px'}}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">mm</InputAdornment>,
+            }}
+          />
         <TextField
           name="kvadratmeter"
           label="Antall kvadratmeter"
@@ -132,9 +126,8 @@ function App() {
           InputProps={{
             endAdornment: <InputAdornment position="end">m<sup>2</sup></InputAdornment>,
             }}
-          />
-      </Box>
-      <Box>
+          /><br></br>
+          <small>Den mest vanlige bredden er 120 mm.</small><br></br>
         <h2>Du trenger:</h2>
         <h3>
           {calculatedLopemeter} løpemeter terrassebord
@@ -149,7 +142,7 @@ function App() {
         <h4>Beregne terassebord</h4>
         <p>Når det gjelder terrassebord, må du først bestemme hvilken type tre eller komposittmateriale du ønsker å bruke. Vanlige trevalg inkluderer trykkimpregnert furu, sedertre eller tropiske tresorter som teak eller ipe. Komposittmaterialer består av en blanding av trefiber og plast, og de er kjent for sin holdbarhet og lave vedlikeholdsbehov. Når du har valgt materialtypen, måler du arealet på terrassen og legger inn bredde på terassebordet og kvadratmeteren i kalkulatoren for å beregne hvor mange bord du trenger. Kalkulatoren tar høyde for avkapp og erstatningsbord.</p>
         <h4>Beregne skruer</h4>
-        <p>Når det gjelder skruer, er det viktig å velge riktig type og størrelse for å sikre at terrassebordene er festet sikkert. Rustfrie skruer er sterke og motstandsdyktige mot korrosjon, og de er vanligvis det beste valget for utendørs prosjekter. En vanlig tommelfingerregel er å bruke omtrent 30 skruer per kvadratmeter, men det er noen variasjoner. Kalkulatoren regner ut det totale antallet skruer du trenger.</p>
+        <p>Når det gjelder skruer, er det viktig å velge riktig type og størrelse for å sikre at terrassebordene er festet sikkert. Rustfrie skruer er sterke og motstandsdyktige mot korrosjon, og de er vanligvis det beste valget for utendørs prosjekter. En vanlig tommelfingerregel er å bruke omtrent 35 skruer per kvadratmeter, men det er noen variasjoner. Kalkulatoren regner ut det totale antallet skruer du trenger.</p>
         <h4>Planlegg byggeprosjektet</h4>
         <p>Ved å planlegge og beregne mengden terrassebord og skruer du trenger, kan du unngå unødvendig sløsing og sikre en jevn byggeprosess. Husk alltid å sjekke lokale bygningsforskrifter og konsultere fagfolk hvis du er usikker på noen av beregningene eller byggestegene. Med riktig forberedelse kan du bygge en ny terrasse som vil gi deg mange års glede og bruk.</p>
         </div>
@@ -170,7 +163,7 @@ function App() {
 
           <p>We also use third party advertisements on terrassebordkalkulator.no to support our site. Some of these advertisers may use technology such as cookies and web beacons when they advertise on our site, which will also send these advertisers (such as Google through the Google AdSense program) information including your IP address, your ISP , the browser you used to visit our site, and in some cases, whether you have Flash installed.  This is generally used for geotargeting purposes (showing New York real estate ads to someone in New York, for example) or showing certain ads based on specific sites visited (such as showing cooking ads to someone who frequents cooking sites).</p>
 
-          <p>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads">Ads Settings</a>. (Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting www.aboutads.info.)</p>
+          <p>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Ads Settings</a>. (Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting www.aboutads.info.)</p>
 
           <p><b>DoubleClick DART cookies</b><br></br>
           We also may use DART cookies for ad serving through Google's DoubleClick, which places a cookie on your computer when you are browsing the web and visit a site using DoubleClick advertising (including some Google AdSense advertisements).  This cookie is used to serve ads specific to you and your interests (”interest based targeting”).</p>
@@ -197,13 +190,12 @@ function App() {
 
           <p>Vi bruker også tredjepartsannonser på terrassebordkalkulator.no for å støtte nettstedet vårt. Noen av disse annonsørene kan bruke teknologi som informasjonskapsler og web beacons når de annonserer på nettstedet vårt, noe som også vil sende disse annonsørene (som for eksempel Google gjennom Google AdSense-programmet) informasjon, inkludert IP-adressen din, internettleverandøren din, nettleseren du brukte for å besøke nettstedet vårt, og i noen tilfeller om du har Flash installert. Dette brukes generelt for geografisk målretting (for eksempel å vise eiendomsannonser i New York til noen i New York) eller for å vise bestemte annonser basert på spesifikke besøkte nettsteder (for eksempel å vise matlagingsannonser til noen som besøker matlagingssider ofte).</p>
 
-          <p>Brukere kan velge å deaktivere personlig tilpassede annonser ved å besøke <a href="https://google.com/settings/ads">Annonseinnstillinger</a>. (Alternativt kan du velge å deaktivere en tredjepartsleverandørs bruk av informasjonskapsler for personlig tilpasset annonsering ved å besøke www.aboutads.info.)</p>
+          <p>Brukere kan velge å deaktivere personlig tilpassede annonser ved å besøke <a href="https://google.com/settings/ads"  target="_blank" rel="noreferrer">Annonseinnstillinger</a>. (Alternativt kan du velge å deaktivere en tredjepartsleverandørs bruk av informasjonskapsler for personlig tilpasset annonsering ved å besøke www.aboutads.info.)</p>
 
           <p><b>DoubleClick DART-informasjonskapsler</b><br></br>
           Vi kan også bruke DART-informasjonskapsler for annonsevisning gjennom Googles DoubleClick, som plasserer en informasjonskapsel på datamaskinen din når du surfer på nettet og besøker et nettsted som bruker DoubleClick-annonsering (inkludert noen Google AdSense-annonser). Denne informasjonskapselen brukes til å vise annonser som er spesifikke</p>
       </details>
       <hr></hr>
-      </Box>
     </Container>
   );
 }
