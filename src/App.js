@@ -127,7 +127,7 @@ function App() {
             endAdornment: <InputAdornment position="end">m<sup>2</sup></InputAdornment>,
             }}
           /><br></br>
-          <small>Den mest vanlige bredden er 120 mm.</small><br></br>
+          <small>Den vanligste bredden er 120 mm.</small><br></br>
         <h2>Du trenger:</h2>
         <h3>
           {calculatedLopemeter} løpemeter terrassebord
