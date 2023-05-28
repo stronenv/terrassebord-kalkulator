@@ -73,9 +73,10 @@ function App() {
   return (
     <Container maxWidth="sm" >
       <header className="App-header">
-        <h1>Terrassebordkalkulator<br></br><small> - så mye materialer trenger du</small></h1>
+        <h1 style={{marginBottom: '0.6rem'}}>Terrassebordkalkulator</h1>
+        <h2 style={{marginTop: '0'}}>- så mye materialer trenger du</h2>
         <p>
-          Regn ut hvor mye terrassebord, skruer og material du trenger. 
+          Regn ut hvor mange løpemeter terrassebord, skruer og material du trenger. 
         </p>
       </header>
         {/*<Grid container spacing={2} alignItems="center">
