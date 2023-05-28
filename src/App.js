@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 //import { styled } from '@mui/material/styles';
 
 /* Import Material UI Components  */
-//import { Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import Container from '@mui/material/Container';
 
 import TextField from '@mui/material/TextField';
@@ -103,31 +103,37 @@ function App() {
             />
           </Grid>
             </Grid>*/}
-        <TextField
-          marginRight="20"
-          name="bredde"
-          label="Terrassebord bredde"
-          variant="outlined"
-          margin="normal"
-          value={bredde}
-          onChange={handleInputChange}
-          style={{marginRight: '16px'}}
-          InputProps={{
-            endAdornment: <InputAdornment position="end">mm</InputAdornment>,
-            }}
-          />
-        <TextField
-          name="kvadratmeter"
-          label="Antall kvadratmeter"
-          variant="outlined"
-          margin="normal"
-          value={kvm}
-          onChange={handleTextInputChange}
-          InputProps={{
-            endAdornment: <InputAdornment position="end">m<sup>2</sup></InputAdornment>,
-            }}
-          /><br></br>
-          <small>Den vanligste bredden er 120 mm.</small><br></br>
+        <Grid container>
+          <Grid item s>
+            <TextField
+              name="bredde"
+              label="Terrassebord bredde"
+              variant="outlined"
+              margin="normal"
+              value={bredde}
+              onChange={handleInputChange}
+              style={{marginRight: '16px'}}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">mm</InputAdornment>,
+                }}
+              /><br></br>
+            <small>Den vanligste bredden er 120 mm.</small><br></br><br></br>
+          </Grid>
+          <Grid item s>
+            <TextField
+              name="kvadratmeter"
+              label="Antall kvadratmeter"
+              variant="outlined"
+              margin="normal"
+              value={kvm}
+              onChange={handleTextInputChange}
+              style={{marginRight: '16px'}}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">m<sup>2</sup></InputAdornment>,
+                }}
+              />
+          </Grid>
+        </Grid>
         <h2>Du trenger:</h2>
         <h3>
           {calculatedLopemeter} løpemeter terrassebord
