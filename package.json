@@ -17,7 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "overrides": {
-    "yaml": "1.10.3"
+    "yaml": "1.10.3",
+    "ws@>=8.0.0 <8.21.0": "8.21.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
